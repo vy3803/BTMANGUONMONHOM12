@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danh sách thành viên nhóm</title>
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f6f9fc;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    outline: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 80%;
+    max-width: 900px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 20px;
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .role {
+    color: #007bff;
+    margin-bottom: 8px;
+  }
+
+  .email {
+    color: #555;
+    font-size: 14px;
+  }
+
+  
+
+</style>
+</head>
+<body>
+
+  <h2>Danh sách thành viên nhóm</h2>
+
+  <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm theo tên..." onkeyup="searchStudent()">
+
+  <div class="grid" id="studentGrid">
+    <div class="card">
+      <div class="name">Đặng Thị Thiên Thơ</div>
+      <div class="role">Thiết kế slide</div>
+      <div class="email">dh52201509@student.stu.edu.vn</div>
+    </div>
+
+    <div class="card">
+      <div class="name">Nguyễn Kim Thu</div>
+      <div class="role">Tìm kiếm thông tin</div>
+      <div class="email">dh52201519@student.stu.edu.vn</div>
+    </div>
+
+    <div class="card">
+      <div class="name">Nguyễn Thanh Trí</div>
+      <div class="role">Thuyết trình</div>
+      <div class="email">dh52201632@student.stu.edu.vn</div>
+    </div>
+
+    <div class="card">
+      <div class="name">Bùi Nguyễn Minh Vy</div>
+      <div class="role">Nhóm trưởng</div>
+      <div class="email">dh52201782@student.stu.edu.vn</div>
+    </div>
+
+
+  </div>
+
+<script>
+function searchStudent() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const name = card.querySelector(".name").textContent.toLowerCase();
+    if (name.includes(input)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

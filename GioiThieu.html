@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu Nhóm 10</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .team-section {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+
+        .team-section > p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-member-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .team-member-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Bo tròn ảnh */
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #eee;
+        }
+
+        .team-member-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .team-member-card .role {
+            font-size: 1rem;
+            color: #007bff; /* Màu xanh chủ đạo */
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Thông tin ẩn (MSSV, Ngày sinh) */
+        .member-details {
+            max-height: 0; /* Ẩn đi bằng cách thu nhỏ chiều cao */
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease-in;
+        }
+
+        .member-details p {
+            font-size: 0.9rem;
+            color: #444;
+            margin: 5px 0;
+        }
+        
+        /* === HIỆU ỨNG KHI CHẠM/RÊ CHUỘT === */
+        
+        .team-member-card:hover {
+            /* Hiệu ứng "sáng lên" bằng cách nâng card và đổ bóng màu */
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 123, 255, 0.2); /* Đổ bóng màu xanh */
+        }
+
+        .team-member-card:hover .member-details {
+            /* Hiện thông tin */
+            max-height: 100px; /* Đặt chiều cao đủ lớn để chứa nội dung */
+            opacity: 1;
+            margin-top: 1rem; /* Thêm khoảng cách khi hiện ra */
+        }
+
+        /* Nút liên hệ */
+        .contact-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px; /* Bo tròn dạng viên thuốc */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="team-section">
+        <h2>Gặp gỡ Nhóm 10</h2>
+        <p>Những sinh viên đam mê công nghệ và thiết kế.</p>
+
+        <div class="team-grid">
+            <div class="team-member-card">
+                <h3>Đặng Thị Thiên Thơ</h3>
+                <p class="role">Thiết kế slide</p>
+                <div class="member-details">
+                    <p><strong>MSSV:</strong> DH52201509</p>
+                    <p><strong>Ngày sinh:</strong> 29/12/2004</p>
+                </div>
+            </div>
+
+            <div class="team-member-card">
+                <h3>Nguyễn Kim Thu</h3>
+                <p class="role">Tìm kiếm thông tin</p>
+                <div class="member-details">
+                    <p><strong>MSSV:</strong> DH52201519</p>
+                    <p><strong>Ngày sinh:</strong> 11/01/2004</p>
+                </div>
+            </div>
+
+            <div class="team-member-card">
+                <h3>Nguyễn Thanh Trí</h3>
+                <p class="role">Thuyết trình</p>
+                <div class="member-details">
+                    <p><strong>MSSV:</strong> DH52201632</p>
+                    <p><strong>Ngày sinh:</strong> 04/02/2004</p>
+                </div>
+            </div>
+
+            <div class="team-member-card">
+                <h3>Bùi Nguyễn Minh Vy</h3>
+                <p class="role">Nhóm trưởng</p>
+                <div class="member-details">
+                    <p><strong>MSSV:</strong> DH52201782</p>
+                    <p><strong>Ngày sinh:</strong> 10/05/2004</p>
+                </div>
+            </div>
+
+            
+        <a href="LienHe.html" class="contact-button">Liên hệ với chúng tôi</a>
+    </section>
+
+</body>
+</html>
