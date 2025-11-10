@@ -1,0 +1,45 @@
+# Tên của workflow
+name: Deploy static content to Pages
+
+# Chạy workflow này khi có 1 push lên nhánh "main"
+on:
+  push:
+    branches: ["main"]
+  # Cho phép bạn chạy workflow này thủ công từ tab Actions
+  workflow_dispatch:
+
+# Cấp quyền cho workflow để deploy
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cài đặt môi trường deploy
+environment:
+  name: github-pages
+  url: ${{ steps.deployment.outputs.page_url }}
+
+# Các bước thực hiện
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Tải code từ repository về
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      # 2. Cài đặt GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      # 3. Tải lên các file (artifact) của website
+      #    Ở đây ta tải lên mọi thứ từ thư mục gốc (nơi chứa file .html của bạn)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' 
+          
+      # 4. Triển khai lên GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
